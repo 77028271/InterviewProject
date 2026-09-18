@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Save 后代码规范 + 多端兼容自查",
+      "trigger": "PostFileSave",
+      "description": "保存 TS/TSX/SCSS 后追加编码规范 + 多端兼容性自查提示",
+      "matcher": "\\.(ts|tsx|scss)$",
+      "action": {
+        "type": "agent",
+        "prompt": "刚刚保存了 .ts/.tsx/.scss 文件。请按 .kiro/steering/coding-standards.md、ui-guidelines.md、cross-platform.md 自查：\n\n【规范】1) 是否用 rpx 而非 px；2) Props 是否内联声明；3) 样式是否走 BEM 命名；4) 有无硬编码颜色（应引用色板）；5) 是否有 absolute 定位可换成 flex。\n\n【多端兼容 - 禁用清单】\n- 是否有 SVG dataURL 用作 Image src（应换 PNG）\n- 是否直接调 e.stopPropagation()（应用 Taro catchTap 或移除）\n- 是否用了 align-self（应用嵌套 flex + margin:auto 或 align-items）\n- 是否用了 gap 属性（应用 margin 替代）\n- 是否用了 position: fixed / sticky（应换 absolute 或改结构）\n- 是否用了 rgb(a) / hsl 颜色（应换 hex）\n- 是否用了 text-align: justify 或复合 text-decoration（应简化）\n\n发现偏离规范/多端约束的地方简短指出，不做自动改动。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[0].use[4]!./src/pages/index/index.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.index-page {
+  min-height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 40rpx;
+  background: #f5f5f5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.index-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 60rpx;
+}
+
+.index-btn {
+  width: 480rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: -webkit-gradient(linear, left top, right top, from(#ff6b81), to(#ff4d6d));
+  background: -webkit-linear-gradient(left, #ff6b81, #ff4d6d);
+  background: linear-gradient(90deg, #ff6b81, #ff4d6d);
+  color: #fff;
+  font-size: 32rpx;
+  border: none;
+}
+
+.index-btn::after {
+  border: none;
+}
+
+.index-btn--secondary {
+  margin-top: 24rpx;
+  background: -webkit-gradient(linear, left top, right top, from(#ffb454), to(#ff8c42));
+  background: -webkit-linear-gradient(left, #ffb454, #ff8c42);
+  background: linear-gradient(90deg, #ffb454, #ff8c42);
+}
+
+.index-tip {
+  margin-top: 40rpx;
+  font-size: 26rpx;
+  color: #999;
+}

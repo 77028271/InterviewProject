@@ -1,0 +1,234 @@
+.address-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f5f5f5;
+}
+
+.address-list {
+  flex: 1;
+  padding: 16rpx 24rpx 0;
+  box-sizing: border-box;
+}
+
+/* ===== 单个地址条目 ===== */
+.address-item {
+  display: flex;
+  flex-direction: row;
+  padding: 24rpx;
+  background: #fff;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e9e9e9;
+  transition: background-color 0.2s ease;
+}
+
+.address-item--active {
+  background: #fff2f3;
+}
+
+/* 单选圈容器：撑满条目高度，内部 flex 垂直居中 */
+.address-item__radio-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  
+}
+
+/* 条目右侧内容列 */
+.address-item__body {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+}
+
+/* ===== 单选圈 ===== */
+.radio {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.radio--empty {
+  border: 2rpx solid #d0d0d0;
+  background: #fff;
+}
+
+.radio--checked {
+  background: #ff4d6d;
+  border: 2rpx solid #ff4d6d;
+}
+
+.radio__icon {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+/* ===== 内容区 ===== */
+.address-item__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.address-item__labels {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10rpx;
+}
+
+.address-item__labels .label + .label {
+  margin-left: 10rpx;
+}
+
+.address-item__labels .label:nth-child(n + 2):first-line {
+  /* 换行后首个元素不应带左 margin，通过 CSS 无法精确控制；
+     跨端保守策略：接受最多 10rpx 的视觉偏差，或用 JS 计算换行点 */
+}
+
+.label {
+  padding: 4rpx 14rpx;
+  border-radius: 10rpx;
+  font-size: 22rpx;
+  line-height: 1.4;
+  border: 1rpx solid transparent;
+  box-sizing: border-box;
+}
+
+.label--orange {
+  color: #ff7a45;
+  background: #fff3ec;
+  border-color: #ffd3bf;
+}
+
+.label--green {
+  color: #52c41a;
+  background: #f0faeb;
+  border-color: #c8eab5;
+}
+
+.label--red {
+  color: #ff4d4f;
+  background: #ffffff;
+  border-color: #ffccc7;
+}
+
+.label--blue {
+  color: #1890ff;
+  background: #e6f7ff;
+  border-color: #bae7ff;
+}
+
+.label--pink {
+  color: #eb2f96;
+  background: #fff0f6;
+  border-color: #ffadd2;
+}
+
+.label--gray {
+  color: #666;
+  background: #f5f5f5;
+  border-color: #e0e0e0;
+}
+
+/* 系统判定标签：淡粉底色，用于"常用 / 上次下单 / 距离最近"等
+   文字沿用主色 #ff4d6d 增强可读性，边框保持同色系浅描边 */
+.label--system {
+  color: #ff4d6d;
+  background: #fae5e8;
+  border-color: #f7c4cc;
+}
+.address-item__name-row {
+  display: flex;
+  align-items: baseline;
+}
+
+.address-item__name {
+  font-size: 26rpx;
+  color: #d3d3d3;
+  margin-right: 16rpx;
+}
+
+.address-item__phone {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.address-item__address {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 600;
+  line-height:normal;
+  word-break: break-all;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 6rpx;
+}
+
+.address-item__extra {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.4;
+}
+
+/* 倒计时标签：数字等宽，避免每秒跳变时抖动
+   font-variant-numeric 在支付宝/抖音老引擎里不支持，降级为普通显示，不影响功能 */
+.label--countdown {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1rpx;
+}
+
+/* ===== 编辑按钮 ===== */
+.address-item__edit-wrap {
+  display: flex;
+  align-items: center;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
+
+.address-item__edit {
+  padding: 8rpx;
+  border-radius: 50%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.address-item__edit-icon {
+  width: 48rpx;
+  height: 48rpx;
+  display: block;
+}
+
+/* ===== 底部新增按钮 ===== */
+.address-footer {
+  padding: 20rpx 32rpx calc(20rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1rpx solid #eee;
+}
+
+.address-footer__btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: linear-gradient(90deg, #ff6b81, #ff4d6d);
+  color: #fff;
+  font-size: 30rpx;
+  border: none;
+}
+
+.address-footer__btn::after {
+  border: none;
+}

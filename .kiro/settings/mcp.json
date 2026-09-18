@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "env": {
+        "CONTEXT7_API_KEY": ""
+      },
+      "disabled": false,
+      "_comment": "获取最新的库文档（React / Taro / 其他依赖），用于查最新 API 用法"
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": ""
+      },
+      "disabled": true,
+      "_comment": "读取 / 操作 GitHub 仓库，需要用户填 GITHUB_TOKEN。默认 disabled 避免占用额度"
+    },
+    "figma": {
+      "command": "npx",
+      "args": ["-y", "@figma/figma-mcp@latest"],
+      "env": {
+        "FIGMA_API_KEY": ""
+      },
+      "disabled": true,
+      "_comment": "直接从 Figma 设计稿读取节点数据，比图片还原精度高。需要 Figma 个人访问令牌"
+    }
+  }
+}

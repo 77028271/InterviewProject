@@ -1,0 +1,57 @@
+{
+  "name": "interview-taro-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Taro3 + React + TS demo with address list page",
+  "templateInfo": {
+    "name": "default",
+    "typescript": true
+  },
+  "scripts": {
+    "build": "taro build --type weapp",
+    "build:weapp": "taro build --type weapp",
+    "build:alipay": "taro build --type alipay",
+    "build:tt": "taro build --type tt",
+    "build:h5": "taro build --type h5",
+    "dev": "taro build --type weapp --watch",
+    "dev:weapp": "taro build --type weapp --watch",
+    "dev:alipay": "taro build --type alipay --watch",
+    "dev:tt": "taro build --type tt --watch",
+    "dev:h5": "taro build --type h5 --watch"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.21.5",
+    "@tarojs/components": "3.6.28",
+    "@tarojs/helper": "3.6.28",
+    "@tarojs/plugin-framework-react": "3.6.28",
+    "@tarojs/plugin-platform-alipay": "^3.6.28",
+    "@tarojs/plugin-platform-h5": "3.6.28",
+    "@tarojs/plugin-platform-tt": "^3.6.28",
+    "@tarojs/plugin-platform-weapp": "3.6.28",
+    "@tarojs/react": "3.6.28",
+    "@tarojs/runtime": "3.6.28",
+    "@tarojs/taro": "3.6.28",
+    "@tarojs/webpack5-runner": "3.6.28",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
+    "@tarojs/cli": "3.6.28",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "babel-preset-taro": "3.6.28",
+    "postcss": "^8.4.21",
+    "react-refresh": "^0.14.0",
+    "sass": "^1.65.0",
+    "typescript": "^5.0.0",
+    "webpack": "5.88.2",
+    "webpack-virtual-modules": "^0.6.1"
+  }
+}

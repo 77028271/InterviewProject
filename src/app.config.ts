@@ -1,0 +1,13 @@
+export default defineAppConfig({
+  pages: [
+    'pages/index/index',
+    'pages/addressList/index',
+    'pages/couponCenter/index'
+  ],
+  window: {
+    backgroundTextStyle: 'light',
+    navigationBarBackgroundColor: '#fff',
+    navigationBarTitleText: '收货地址',
+    navigationBarTextStyle: 'black'
+  }
+})
