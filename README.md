@@ -161,6 +161,32 @@ npx taro build --type rn
 4. IDE 里"新建/导入项目"，路径填 `dist/alipay`（**不要漏 `alipay`**）
 5. 用测试 AppID
 
+### Q8：支付宝小程序 `TypeError: Constructor Map requires 'new'`
+
+**问题描述**：支付宝小程序在 `enablePolyfillWorker=true` 时会注入有问题的 ES6 polyfill，把原生 `Map` 覆盖为一个不支持 `class` 继承的构造函数。Taro 3.6.28 的 `EventSource` 类使用了 `class EventSource extends Map`，在被覆盖的 `Map` 上会报错：
+
+```
+TypeError: Constructor Map requires 'new'
+```
+
+堆栈定位在 `taro.js` 里 `class X extends Map` 附近。
+
+**临时修复**：直接修改 `node_modules` 中的 Taro 文件（把继承改成组合）。
+
+> ⚠️ 这是临时修复，修改的是 `node_modules` 中的文件。如果重新安装依赖，需要重新应用这些修改。
+
+**长期方案**（三选一）：
+
+1. **升级 Taro 到 3.6.30+**（如果已修复此问题）
+2. **向 Taro 官方提交 Issue / PR**
+3. **团队共用此修复**：
+   - 用 `patch-package` 工具持久化 `node_modules` 的修改
+   - 或在 `package.json` 的 `postinstall` 脚本里自动应用修复
+
+**推荐组合**：短期用临时修复跑起来，长期走方案 1 + 方案 3（`patch-package` 保底）。
+
+> 详细操作步骤与误区（如"升级 Taro 到 4.x 无效"、"加 `resolutions` 锁版本无效"）见 `.kiro/steering/polyfill-safety.md`。
+
 ## 后续可扩展
 - 表单：地址新增 / 编辑页面
 - 状态管理：接 redux / zustand 持久化"选中地址"
